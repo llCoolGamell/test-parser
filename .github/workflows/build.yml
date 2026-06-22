@@ -27,7 +27,7 @@ jobs:
           python -m playwright install chromium --with-deps
 
       - name: Build EXE with PyInstaller
-        run: pyinstaller --onefile --noconsole --name "YandexAIChecker" --add-data "requests.txt;." main.py
+        run: pyinstaller --onefile --noconsole --name "YandexAIChecker" --add-data "requests.txt;." --hidden-import parser --hidden-import gui main.py
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
